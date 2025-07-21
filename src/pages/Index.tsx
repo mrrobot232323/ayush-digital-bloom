@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import Preloader from '@/components/Preloader';
 import Navigation from '@/components/Navigation';
+import { useLocomotiveScroll } from '@/hooks/useLocomotiveScroll';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
+import Dashboard from '@/components/Dashboard';
 import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
@@ -10,6 +12,9 @@ import Footer from '@/components/Footer';
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [showContent, setShowContent] = useState(false);
+  
+  // Initialize smooth scrolling
+  useLocomotiveScroll();
 
   const handlePreloaderComplete = () => {
     setIsLoading(false);
@@ -33,7 +38,7 @@ const Index = () => {
   }, [isLoading]);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground" data-scroll-container>
       {/* Preloader */}
       {isLoading && <Preloader onComplete={handlePreloaderComplete} />}
       
@@ -41,13 +46,22 @@ const Index = () => {
       {showContent && (
         <>
           <Navigation />
-          <main>
-            <section id="home">
+          <main data-scroll-section>
+            <section id="home" data-scroll data-scroll-speed="1">
               <Hero />
             </section>
-            <About />
-            <Projects />
-            <Contact />
+            <section data-scroll data-scroll-speed="0.5">
+              <About />
+            </section>
+            <section data-scroll data-scroll-speed="0.8">
+              <Dashboard />
+            </section>
+            <section data-scroll data-scroll-speed="0.6">
+              <Projects />
+            </section>
+            <section data-scroll data-scroll-speed="0.4">
+              <Contact />
+            </section>
           </main>
           <Footer />
         </>

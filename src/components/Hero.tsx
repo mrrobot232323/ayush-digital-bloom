@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'phosphor-react';
 
 const Hero = () => {
   const heroRef = useRef<HTMLElement>(null);
@@ -136,12 +137,21 @@ const Hero = () => {
         </p>
 
         <div ref={ctaRef}>
-          <Button 
-            size="lg"
-            className="bg-gradient-to-r from-neon-blue to-neon-purple hover:from-neon-purple hover:to-neon-cyan text-white font-semibold px-8 py-4 rounded-xl text-lg transition-all duration-300 shadow-lg neon-glow"
+          <a 
+            href="https://drive.google.com/file/d/1kD2QKBjfFYWdBZUSmrI-qMQAqADqsd7C/view?usp=drive_link"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Hire Me
-          </Button>
+            <Button 
+              size="lg"
+              className="bg-gradient-to-r from-neon-blue to-neon-purple hover:from-neon-purple hover:to-neon-cyan text-white font-semibold px-8 py-4 rounded-xl text-lg transition-all duration-300 shadow-lg neon-glow group"
+            >
+              <span className="flex items-center gap-2">
+                Hire Me
+                <ArrowRight size={20} weight="light" className="group-hover:translate-x-1 transition-transform" />
+              </span>
+            </Button>
+          </a>
         </div>
       </div>
 

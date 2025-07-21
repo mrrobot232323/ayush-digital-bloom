@@ -48,24 +48,6 @@ const Projects = () => {
       liveUrl: '#',
       githubUrl: '#'
     },
-    {
-      id: 5,
-      title: 'E-Commerce Platform',
-      description: 'Full-featured online store with payment integration and admin dashboard.',
-      image: '/placeholder.svg',
-      tech: ['Next.js', 'Stripe', 'Prisma', 'Tailwind'],
-      liveUrl: '#',
-      githubUrl: '#'
-    },
-    {
-      id: 6,
-      title: 'Task Management App',
-      description: 'Collaborative project management tool with real-time updates and team features.',
-      image: '/placeholder.svg',
-      tech: ['React', 'Express', 'WebRTC', 'MongoDB'],
-      liveUrl: '#',
-      githubUrl: '#'
-    }
   ];
 
   useEffect(() => {
