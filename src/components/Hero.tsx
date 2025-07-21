@@ -95,16 +95,18 @@ const Hero = () => {
       ref={heroRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background Spline 3D Model */}
-      <div 
-        ref={splineRef}
-        className="absolute inset-0 w-full h-full"
-      >
-        <iframe 
-          src="https://my.spline.design/chips-U9PQQrFRtrsCHszKTj8P0fc1/"
-          className="w-full h-full border-0"
-          loading="lazy"
-        />
+      {/* Enhanced Background Effects */}
+      <div className="absolute inset-0 w-full h-full">
+        {/* Gradient Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-background/80 to-primary/5"></div>
+        
+        {/* Animated Grid */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)`,
+            backgroundSize: '50px 50px'
+          }}></div>
+        </div>
       </div>
 
       {/* Floating Background Orbs */}
