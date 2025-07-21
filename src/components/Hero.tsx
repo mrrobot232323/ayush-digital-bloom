@@ -101,7 +101,7 @@ const Hero = () => {
         className="absolute inset-0 w-full h-full"
       >
         <iframe 
-          src="https://my.spline.design/orb-GWId9ikLns66HdsUK4DSpPlt/"
+          src="https://my.spline.design/chips-U9PQQrFRtrsCHszKTj8P0fc1/"
           className="w-full h-full border-0"
           loading="lazy"
         />
