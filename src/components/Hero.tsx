@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
+import Typed from 'typed.js';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'phosphor-react';
 
@@ -8,7 +9,7 @@ const Hero = () => {
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
-  const splineRef = useRef<HTMLDivElement>(null);
+  const typingRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     const tl = gsap.timeline({ delay: 0.5 });
@@ -18,12 +19,6 @@ const Hero = () => {
       opacity: 0, 
       y: 50, 
       filter: 'blur(10px)' 
-    });
-    
-    gsap.set(splineRef.current, { 
-      opacity: 0, 
-      x: 100, 
-      scale: 0.8 
     });
 
     // Animate elements
@@ -47,14 +42,31 @@ const Hero = () => {
       filter: 'blur(0px)',
       duration: 1,
       ease: "power2.out"
-    }, "-=0.6")
-    .to(splineRef.current, {
-      opacity: 1,
-      x: 0,
-      scale: 1,
-      duration: 1.5,
-      ease: "power2.out"
-    }, "-=1");
+    }, "-=0.6");
+
+    // Initialize Typed.js after animation completes
+    const typedTimeout = setTimeout(() => {
+      if (typingRef.current) {
+        const typed = new Typed(typingRef.current, {
+          strings: [
+            "Web Developer",
+            "UI UX Designer", 
+            "Problem Solver",
+            "Vibe Coder",
+            "Pixel Engineer"
+          ],
+          loop: true,
+          typeSpeed: 80,
+          backSpeed: 40,
+          backDelay: 1000,
+          startDelay: 500,
+        });
+
+        return () => {
+          typed.destroy();
+        };
+      }
+    }, 2000);
 
     // CTA button hover animation
     const ctaButton = ctaRef.current?.querySelector('button');
@@ -87,6 +99,7 @@ const Hero = () => {
 
     return () => {
       tl.kill();
+      clearTimeout(typedTimeout);
     };
   }, []);
 
@@ -126,10 +139,10 @@ const Hero = () => {
           ref={headlineRef}
           className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
         >
-          <span className="block">Hi, I'm</span>
+          <span className="block text-foreground">Hi, I'm</span>
           <span className="gradient-text text-shadow">Ayush</span>
           <span className="block text-2xl md:text-4xl lg:text-5xl font-light mt-4 text-muted-foreground">
-            Web Developer / UI UX Designer / Problem Solver
+            <span ref={typingRef} className="typing-text"></span>
           </span>
         </h1>
 
