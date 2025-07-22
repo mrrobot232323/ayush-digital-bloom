@@ -102,13 +102,14 @@ const Hero = () => {
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-20"
+          className="absolute inset-0 w-full h-full object-cover opacity-60"
         >
           <source src="https://res.cloudinary.com/dwqlagonh/video/upload/v1753171728/WhatsApp_Video_2025-07-22_at_1.30.07_PM_w3l2h1.mp4" type="video/mp4" />
         </video>
         
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background/80 to-primary/5"></div>
+        {/* Enhanced Gradient Overlay for better text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-br from-background/90 via-background/70 to-primary/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-transparent to-background/80"></div>
       </div>
 
       {/* Floating Background Orbs */}
